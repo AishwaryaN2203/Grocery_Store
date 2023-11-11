@@ -1,0 +1,46 @@
+const products = [
+    { name: "Wheat", category: "cereal-shop", price: 5, inventory: 10 },
+    { name: "Kid", category: "cereal-shop", price: 3, inventory: 15 },
+    { name: "Adult", category: "cereal-shop", price: 5, inventory: 10 },
+    { name: "Choco", category: "cereal-shop", price: 5, inventory: 10 },
+    { name: "Chocolate-Pancake", category: "pancake-waffles", price: 3, inventory: 15 },
+    { name: "Choco-Waffle", category: "pancake-waffles", price: 5, inventory: 10 },
+    { name: "Cream-Waffle", category: "pancake-waffles", price: 3, inventory: 15 },
+    { name: "Vanilla-Bread", category: "breads", price: 5, inventory: 10 },
+    { name: "Choco-Bread", category: "breads", price: 3, inventory: 15 },
+    { name: "Wheat-Bread", category: "breads", price: 5, inventory: 10 },
+    {
+      name: "Oak",
+      category: "oatmeal",
+      price: 5,
+      inventory: 10,
+    },
+    {
+      name: "M&M",
+      category: "oatmeal",
+      price: 3,
+      inventory: 15,
+    },
+    {
+      name: "Honey",
+      category: "oatmeal",
+      price: 5,
+      inventory: 10,
+    },
+    {
+      name: "Green Grits",
+      category: "grits",
+      price: 3,
+      inventory: 15,
+    },
+    {
+      name: "Wheat",
+      category: "grits",
+      price: 5,
+      inventory: 10,
+    },
+    { name: "Chips", category: "rollbacks", price: 3, inventory: 15 },
+    { name: "sandwitch", category: "rollbacks", price: 5, inventory: 10 },
+    { name: "B-Bread", category: "rollbacks", price: 3, inventory: 15 },
+  ];
+  

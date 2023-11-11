@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Assignment 1</title>
+    <link rel="stylesheet" href="../mystyle.css" />
+    <script
+      src="https://kit.fontawesome.com/c30b8a7bc6.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Merienda:wght@300;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <div class="header">
+      <h3 class="title-header">Grocery Store</h3>
+      <h1 class="title">Contact Us</h1>
+      <ul>
+        <li><a class="navbar" href="../home.html">Home</a></li>
+        <li>
+          <a class="navbar" href="../pages/freshProducts.html"
+            >Fresh products</a
+          >
+        </li>
+        <li><a class="navbar" href="../pages/frozen.html">Frozen</a></li>
+        <li><a class="navbar" href="../pages/pantry.html">Pantry</a></li>
+        <li>
+          <a class="navbar" href="../pages/breakfastAndCereal.html"
+            >Breakfast and Cereal</a
+          >
+        </li>
+        <li><a class="navbar" href="../pages/baking.html">Baking</a></li>
+        <li><a class="navbar" href="../pages/snacks.html">Snacks</a></li>
+        <li><a class="navbar" href="../pages/candy.html">Candy</a></li>
+        <li><a class="navbar" href="../pages/cart.html">Cart</a></li>
+        <li>
+          <a class="navbar" href="../pages/specialShops.html"
+            >Specialty shops</a
+          >
+        </li>
+        <li><a class="navbar" href="../pages/deals.html">Deals</a></li>
+        <li><a class="navbar" href="../pages/myAccount.html">My-account</a></li>
+        <li><a class="navbar" href="../pages/aboutUs.html">About-us</a></li>
+      </ul>
+    </div>
+
+    <div class="row">
+      <div class="column left">
+        <div>
+          <h3>Have Complaints</h3>
+          <img src="../images/complaints.png" alt="Grocery Store Image" />
+          <p>
+            Connect with our customer support to resolve your issues.
+            <br />Present 24 X 7.
+          </p>
+        </div>
+      </div>
+      <div class="column right">
+        <div>
+          <div>
+            <form
+              name="formName"
+              method="post"
+              onsubmit="return validateForm()"
+            >
+              <label for="fname">First Name</label>
+              <input
+                type="text"
+                id="fname"
+                name="fname"
+                placeholder="First Name"
+              />
+              <label for="lname">Last Name</label>
+              <input
+                type="text"
+                id="lname"
+                name="lname"
+                placeholder="Last Name"
+              />
+              <label for="email">Email Id</label>
+              <input
+                type="text"
+                id="email"
+                name="email"
+                placeholder="Email Id"
+              />
+              <h3 for="gender">Gender</h3>
+
+              <label style="font-weight: 200" for="male" class="g-female">
+                <input
+                  type="radio"
+                  id="male"
+                  class="g-male"
+                  value="male"
+                  name="gender"
+                />Male
+              </label>
+
+              <label style="font-weight: 200" for="female" class="g-female">
+                <input
+                  type="radio"
+                  id="female"
+                  class="g-female"
+                  value="female"
+                  name="gender"
+                />
+                Female</label
+              ><br />
+
+              <label for="phNo">Phone Number</label>
+              <input
+                type="text"
+                id="phNo"
+                name="phNo"
+                placeholder="Phone Number (DDD) DDD-DDDD"
+              />
+
+              <label for="comments">Comments</label>
+              <input
+                type="text"
+                id="comments"
+                name="comments"
+                placeholder="Start typing here..."
+              />
+              <input type="submit" value="Submit" />
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div><h3>Please contact us here</h3></div>
+      <div>
+        <ul>
+          <li>
+            <a href="#"><i class="fa-brands fa-instagram"></i>Instagram</a>
+          </li>
+          <li>
+            <a href="#"><i class="fa-brands fa-facebook"></i>Facebook</a>
+          </li>
+          <li>
+            <a href="#"><i class="fa-solid fa-phone"></i>Contact</a>
+          </li>
+          <li>
+            <a href="#"><i class="fa-solid fa-store"></i>Our Store in Dallas</a>
+          </li>
+        </ul>
+      </div>
+      <div class="my-details">(Aishwarya Nagaraj, AXN210126, CS6314.001)</div>
+    </div>
+   
+    <script src="../scripts/contactUs.js"></script> 
+  </body>
+</html>

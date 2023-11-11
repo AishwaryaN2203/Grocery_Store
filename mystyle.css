@@ -1,0 +1,330 @@
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  flex-grow: 1;
+  min-height: 100vh;
+  color: #0f2c59;
+  background-color: #eadbc8;
+  font-family: "Merienda", cursive;
+}
+
+h2 {
+  margin: 0px;
+  font-style: normal;
+}
+
+.header {
+  text-shadow: 2px 2px silver;
+}
+
+.title {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+.title-header {
+  float: left;
+  padding-left: 20px;
+}
+
+.footer {
+  padding-top: 30px;
+  background-color: #0f2c59;
+  color: #eadbc8;
+  width: 100%;
+  height: 60px;
+}
+
+.footer div {
+  vertical-align: middle;
+  display: inline-block;
+}
+
+#shopping-cart {
+  padding-bottom: 30px;
+  ;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  height: 100%;
+  flex-grow: 1;
+}
+
+.left {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  background-color: #ccc;
+  padding: 10px;
+}
+
+.left div {
+  width: 100%;
+}
+
+.left p {
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+.right {
+  background-color: silver;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 3;
+}
+
+.right div {
+  width: 85%;
+  line-height: 40px;
+}
+
+ul {
+  background-color: #0f2c59;
+  padding: 5px;
+  margin: 0px;
+}
+
+li {
+  display: inline;
+  padding: 10px;
+  font-weight: 500;
+}
+
+.cartItems {
+  /* li element added when cart item is added */
+  display: block;
+  padding: 10px;
+  font-weight: 500;
+}
+
+i {
+  margin: 10px;
+  color: #eadbc8;
+}
+
+dl {
+  background-color: silver;
+}
+
+dt {
+  font-weight: bolder;
+}
+
+dd {
+  text-align: left;
+}
+
+.navbar {
+  color: #eadbc8;
+  text-shadow: none;
+}
+
+a {
+  text-decoration: none;
+  color: #eadbc8;
+}
+
+li a:hover {
+  font-weight: bolder;
+  background-color: #eadbc8;
+  color: #0f2c59;
+  padding: 10px;
+}
+
+img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+table,
+th,
+td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  padding-top: 9px;
+  padding-left: 15px;
+  padding-right: 25px;
+  padding-bottom: 0px;
+}
+
+table.center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+table.cart-page {
+  text-align: center;
+}
+
+.rows {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 10px;
+}
+
+.columns {
+  flex: 1;
+  max-width: 400px;
+  max-height: 400px;
+  margin: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.block {
+  background-color: #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  border-style: double;
+  border-color: gray;
+  border-width: 3px;
+}
+
+/* Page: Candy */
+form {
+  text-align: left;
+}
+
+input {
+  font-family: "Merienda", cursive;
+}
+
+input[type="text"],
+input[type="email"],
+select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type="submit"] {
+  width: 100%;
+  background-color: #0f2c59;
+  color: #eadbc8;
+  padding: 15px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: #eadbc8;
+  color: #0f2c59;
+}
+
+/* Add Fresh Product */
+.column .block {
+  height: 100%;
+  width: 100%;
+  display: block;
+  object-fit: contain;
+  object-position: center;
+}
+
+.contact-info {
+  margin-bottom: 20px;
+}
+
+.profile-list {
+  display: block;
+  text-align: left;
+  color: #eadbc8;
+  padding: 20px;
+}
+
+button {
+  background-color: #0f2c59;
+  color: #eadbc8;
+  padding: 20px;
+  border-radius: 5px;
+  font-family: "Merienda", cursive;
+  font-weight: bolder;
+}
+
+button:hover {
+  background-color: #eadbc8;
+  color: #0f2c59;
+}
+
+button:active {
+  box-shadow: 2px 2px 5px #f8d2a1;
+  border-color: #0f2c59;
+}
+
+.line {
+  margin-top: 45px;
+  margin-bottom: 45px;
+  color: #333;
+  background-color: #333;
+  height: 2px;
+  visibility: visible;
+}
+
+label {
+  font-weight: bolder;
+  font-size: 20px;
+}
+
+.bgSnacks {
+  background-image: url("images/backgroundImage.jpeg");
+  opacity: 0.8;
+}
+
+.bgSS {
+  background-image: url("images/backgroundImage2.jpeg");
+  background-repeat: space;
+  opacity: 0.7;
+  color: black;
+  font-size: larger;
+  font-weight: bolder;
+}
+
+div.my-details {
+  float: left;
+
+}
+
+p.assignment1 {
+  visibility: hidden;
+  clear: left;
+}
+
+.horizontal {
+  display: inline-block
+}
+
+.footer a:link {
+  font-style: italic;
+}
+
+.footer a:visited {
+  color: gray;
+}
+
+.product-element {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+  grid-auto-rows: minmax(100px, auto);
+}

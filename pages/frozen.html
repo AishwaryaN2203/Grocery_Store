@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Assignment 1</title>
+    <link rel="stylesheet" href="../mystyle.css" />
+    <script
+      src="https://kit.fontawesome.com/c30b8a7bc6.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Merienda:wght@300;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <div class="header">
+      <h3 class="title-header">Grocery Store</h3>
+      <h1 class="title">Frozen...</h1>
+      <ul>
+        <li><a class="navbar" href="../home.html">Home</a></li>
+        <li>
+          <a class="navbar" href="../pages/freshProducts.html"
+            >Fresh products</a
+          >
+        </li>
+        <li><a class="navbar" href="../pages/deals.html">Deals</a></li>
+        <li><a class="navbar" href="../pages/pantry.html">Pantry</a></li>
+        <li>
+          <a class="navbar" href="../pages/breakfastAndCereal.html"
+            >Breakfast and Cereal</a
+          >
+        </li>
+        <li><a class="navbar" href="../pages/baking.html">Baking</a></li>
+        <li><a class="navbar" href="../pages/snacks.html">Snacks</a></li>
+        <li><a class="navbar" href="../pages/candy.html">Candy</a></li>
+        <li>
+          <a class="navbar" href="../pages/specialShops.html"
+            >Specialty shops</a
+          >
+        </li>
+        <li><a class="navbar" href="../pages/cart.html">Cart</a></li>
+        <li><a class="navbar" href="../pages/myAccount.html">My-account</a></li>
+        <li><a class="navbar" href="../pages/aboutUs.html">About-us</a></li>
+        <li><a class="navbar" href="../pages/contactUs.html">Contact-us</a></li>
+      </ul>
+    </div>
+    <div class="row">
+      <div class="column left">
+        <div id="category-buttons">
+          <button onclick="displayCategory('shop-all')">Shop All</button>
+          <button onclick="displayCategory('breakfast')">
+            Frozen Breakfast
+          </button>
+          <button onclick="displayCategory('dessert')">Frozen Dessert</button>
+          <button onclick="displayCategory('meals')">Frozen Meals</button>
+          <button onclick="displayCategory('meat')">Frozen Meat</button>
+          <button onclick="displayCategory('pizza')">Frozen Pizza</button>
+          <button onclick="displayCategory('snacks')">Frozen Snacks</button>
+          <button onclick="displayCategory('rollbacks')">Rollbacks</button>
+        </div>
+      </div>
+      <div class="column right">
+        <div>
+          <div >
+            <div class="row" id="product-container"></div>
+          </div>
+          <div >
+            <div id="shopping-cart">
+              <h2>Shopping Cart</h2>
+              <ul style="color:  #eadbc8;"id="cart-items"></ul>
+            </div>
+          </div>
+          <button hidden="hidden" id="addFinalcart" onClick="addCartItemOnPage()"> Add items on page to final cart</button>
+        </div>
+        
+      </div>
+    </div>
+
+    <div class="footer">
+      <div><h3>Please contact us here</h3></div>
+      <div>
+        <ul>
+          <li>
+            <a href="#"><i class="fa-brands fa-instagram"></i>Instagram</a>
+          </li>
+          <li>
+            <a href="#"><i class="fa-brands fa-facebook"></i>Facebook</a>
+          </li>
+          <li>
+            <a href="#"><i class="fa-solid fa-phone"></i>Contact</a>
+          </li>
+          <li>
+            <a href="#"><i class="fa-solid fa-store"></i>Our Store in Dallas</a>
+          </li>
+        </ul>
+      </div>
+      <div class="my-details">(Aishwarya Nagaraj, AXN210126, CS6314.001)</div>
+    </div>
+
+    <script src="../data/frozen.js"></script>
+    <script src="../scripts/displayAddtoCart.js"></script>
+    <script src="../scripts/cart.js"></script>
+  </body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Assignment 1</title>
+    <link rel="stylesheet" href="../mystyle.css" />
+    <script
+      src="https://kit.fontawesome.com/c30b8a7bc6.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Merienda:wght@300;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <div class="header">
+      <h3 class="title-header">Grocery Store</h3>
+      <h1 class="title">Snack Counter</h1>
+      <ul>
+        <li><a class="navbar" href="../home.html">Home</a></li>
+        <li>
+          <a class="navbar" href="../pages/freshProducts.html"
+            >Fresh products</a
+          >
+        </li>
+        <li><a class="navbar" href="../pages/frozen.html">Frozen</a></li>
+        <li><a class="navbar" href="../pages/pantry.html">Pantry</a></li>
+        <li>
+          <a class="navbar" href="../pages/breakfastAndCereal.html"
+            >Breakfast and Cereal</a
+          >
+        </li>
+        <li><a class="navbar" href="../pages/baking.html">Baking</a></li>
+        <li><a class="navbar" href="../pages/deals.html">Deals</a></li>
+        <li><a class="navbar" href="../pages/candy.html">Candy</a></li>
+        <li>
+          <a class="navbar" href="../pages/specialShops.html"
+            >Specialty shops</a
+          >
+        </li>
+        <li><a class="navbar" href="../pages/cart.html">Cart</a></li>
+        <li><a class="navbar" href="../pages/myAccount.html">My-account</a></li>
+        <li><a class="navbar" href="../pages/aboutUs.html">About-us</a></li>
+        <li><a class="navbar" href="../pages/contactUs.html">Contact-us</a></li>
+      </ul>
+    </div>
+
+    <div class="row">
+      <div class="column left bgSnacks">
+        <div>
+          <h2>Snack Counter</h2>
+          <h3>Snacking Items</h3>
+          <ul style="background-color: silver">
+            <li style="display: block">CocaCola</li>
+            <li style="display: block">Chips</li>
+            <li style="display: block">Chicken</li>
+            <li style="display: block">Omelette</li>
+            <li style="display: block">Fries</li>
+            <li style="display: block">Churos</li>
+          </ul>
+          <h3>Note:</h3>
+          <ul style="background-color: silver">
+            <li style="display: block">Choose Nutrient-Dense Snacks</li>
+            <li style="display: block">Practice Portion Control</li>
+            <li style="display: block">Stay Hydrated</li>
+          </ul>
+        </div>
+      </div>
+      <div class="column right">
+        <div>
+          <div class="cart-page">
+            <h2>Get your snacks here.....</h2>
+            <div>
+              <form
+                name="formName"
+                method="post"
+                onsubmit="return searchItem(event, 'snacks')"
+              >
+                <label for="candyNameInput">Want do you want ?? </label>
+                <input
+                  type="text"
+                  id="candyNameInput"
+                  name="candyNameInput"
+                  placeholder="what's on your mind..."
+                />
+                <input type="submit" value="Submit" />
+                <div id="candyInfo"></div>
+                <div id="product-container"></div>
+                <div id="shopping-cart">
+                  <h2>Shopping Cart</h2>
+                  <ul style="color: #eadbc8" id="cart-items"></ul>
+                </div>
+               
+              </form>
+            </div>
+          </div>
+          <button hidden="hidden" id="addFinalcart" onClick="addCartItemOnPage()"> Add items on page to final cart</button>
+        </div>
+      </div>
+    </div>
+    <div class="footer">
+      <div>
+        <h3>Please contact us here</h3>
+      </div>
+      <div>
+        <ul>
+          <li>
+            <a href="#"><i class="fa-brands fa-instagram"></i>Instagram</a>
+          </li>
+          <li>
+            <a href="#"><i class="fa-brands fa-facebook"></i>Facebook</a>
+          </li>
+          <li>
+            <a href="#"><i class="fa-solid fa-phone"></i>Contact</a>
+          </li>
+          <li>
+            <a href="#"><i class="fa-solid fa-store"></i>Our Store in Dallas</a>
+          </li>
+        </ul>
+      </div>
+      <div class="my-details">(Aishwarya Nagaraj, AXN210126, CS6314.001)</div>
+    </div>
+    <script src="../data/snacks.js"></script>
+    <script src="../scripts/searchEnterAdd.js"></script>
+    <script src="../scripts/cart.js"></script>
+  </body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Assignment 1</title>
+  <link rel="stylesheet" href="../mystyle.css" />
+  <script src="https://kit.fontawesome.com/c30b8a7bc6.js" crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Merienda:wght@300;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <div class="header">
+    <h3 class="title-header">Grocery Store</h3>
+    <h1 class="title">Shops across US</h1>
+    <ul>
+      <li><a class="navbar" href="../home.html">Home</a></li>
+      <li><a class="navbar" href="../pages/freshProducts.html">Fresh products</a></li>
+      <li><a class="navbar" href="../pages/frozen.html">Frozen</a></li>
+      <li><a class="navbar" href="../pages/pantry.html">Pantry</a></li>
+      <li><a class="navbar" href="../pages/breakfastAndCereal.html">Breakfast and Cereal</a></li>
+      <li><a class="navbar" href="../pages/baking.html">Baking</a></li>
+      <li><a class="navbar" href="../pages/snacks.html">Snacks</a></li>
+      <li><a class="navbar" href="../pages/candy.html">Candy</a></li>
+      <li><a class="navbar" href="../pages/deals.html">Deals</a></li>
+      <li><a class="navbar" href="../pages/cart.html">Cart</a></li>
+      <li><a class="navbar" href="../pages/myAccount.html">My-account</a></li>
+      <li><a class="navbar" href="../pages/aboutUs.html">About-us</a></li>
+      <li><a class="navbar" href="../pages/contactUs.html">Contact-us</a></li>
+    </ul>
+  </div>
+
+
+
+  <div class="row">
+    <div class="column left">
+      <div>
+        <h3>Open a Store</h3>
+        <img src="../images/groceryStore.jpeg" alt="Grocery Store Image">
+        <p>At Veggies2go , we pride ourselves on being your neighborhood's go-to destination for top-quality groceries
+          and exceptional service. Our store is a place where freshness meets variety, where you'll find everything you
+          need to stock your kitchen with the finest ingredients.</p>
+        <button>Register Here</button>
+      </div>
+    </div>
+    <div class="column right">
+      <div>
+        <div class="special-offers">
+        <h2>Special Offers</h2>
+        <div id="question-container">
+          <p id="question">Question 1: Are you a student?</p>
+          <button onclick="answerQuestion(true)">Yes</button>
+          <button onclick="answerQuestion(false)">No</button>
+        </div>
+        <div id="offer-container">
+          <p id="qualification-info"></p>
+          <p id="offer-info"></p>
+          <p id="time-spent"></p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  </div>
+
+
+  <div class="footer bgSS">
+    <div>
+      <h3>Please contact us here</h3>
+    </div>
+    <div>
+      <ul>
+        <li>
+          <a href="#"><i class="fa-brands fa-instagram"></i>Instagram</a>
+        </li>
+        <li>
+          <a href="#"><i class="fa-brands fa-facebook"></i>Facebook</a>
+        </li>
+        <li>
+          <a href="#"><i class="fa-solid fa-phone"></i>Contact</a>
+        </li>
+        <li>
+          <a href="#"><i class="fa-solid fa-store"></i>Our Store in Dallas</a>
+        </li>
+      </ul>
+    </div>
+    <div class="my-details">
+      (Aishwarya Nagaraj, AXN210126, CS6314.001)
+    </div>
+  </div>
+  <script src="../data/specialShops.js"></script>
+  <script src="../scripts/specialShops.js"></script>
+</body>
+
+</html>

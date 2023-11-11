@@ -1,0 +1,53 @@
+const products = [
+    { name: "Basket", category: "goods", price: 5, inventory: 10 },
+    { name: "Kettle", category: "goods", price: 3, inventory: 15 },
+    { name: "Freshner", category: "goods", price: 5, inventory: 10 },
+    { name: "Beetroot", category: "vegetables", price: 3, inventory: 15 },
+    { name: "Tomato", category: "vegetables", price: 5, inventory: 10 },
+    { name: "Carrot", category: "vegetables", price: 3, inventory: 15 },
+    { name: "Onion", category: "vegetables", price: 5, inventory: 10 },
+    { name: "Lettuce", category: "vegetables", price: 3, inventory: 15 },
+    { name: "Pepper", category: "condiments", price: 5, inventory: 10 },
+    { name: "Cinnamon", category: "condiments", price: 3, inventory: 15 },
+    { name: "Chilliflakes", category: "condiments", price: 3, inventory: 15 },
+    {
+      name: "Peanut",
+      category: "peanut-butter",
+      price: 5,
+      inventory: 10,
+    },
+    {
+      name: "Butter",
+      category: "peanut-butter",
+      price: 3,
+      inventory: 15,
+    },
+    {
+      name: "Peanut-Butter",
+      category: "peanut-butter",
+      price: 5,
+      inventory: 10,
+    },
+    {
+      name: "Cheese",
+      category: "pizza-pasta",
+      price: 3,
+      inventory: 15,
+    },
+    {
+      name: "Alfredo",
+      category: "pizza-pasta",
+      price: 5,
+      inventory: 10,
+    },
+    {
+      name: "Tomato-Pasta",
+      category: "pizza-pasta",
+      price: 3,
+      inventory: 15,
+    },
+    { name: "Knife", category: "rollbacks", price: 3, inventory: 15 },
+    { name: "Cutting-Board", category: "rollbacks", price: 5, inventory: 10 },
+    { name: "Scissors", category: "rollbacks", price: 3, inventory: 15 },
+  ];
+  
