@@ -4,32 +4,33 @@ function displayCategory(category, file) {
   productContainer.innerHTML = ""; 
 
   if (category === "shop-all") {
-    productContainer.classList.add("product-element");
+    $("#product-container").addClass("product-element");
     products.forEach((product) => {
-      if(product.file === file){
-        const productItem = document.createElement("div");
-        productItem.innerHTML = `
-                    <img style="max-width: 100px; max-height: 100px;" src="../images/${product.category}-${product.name}.jpg" alt="${product.name}">
-                    <h3>${product.name}</h3>
-                    <p>Price: $${product.price}</p>
-                    <button onclick="addToCart('${product.name}')">Add to Cart</button>
-                `;
-        productContainer.appendChild(productItem);
-      }
-    });
-  }
-  products.forEach((product) => {
-    if (product.file === file && product.category === category && product.inventory > 0) {
-      const productItem = document.createElement("div");
-      productItem.innerHTML = `
-                <img style="max-width: 100px; max-height: 100px;" src="../images/${category}-${product.name}.jpg" alt="${product.name}">
+        if (product.file === file) {
+            const productItem = $("<div>").html(`
+                <img style="max-width: 100px; max-height: 100px;" src="../images/${product.category}-${product.name}.jpg" alt="${product.name}">
                 <h3>${product.name}</h3>
                 <p>Price: $${product.price}</p>
                 <button onclick="addToCart('${product.name}')">Add to Cart</button>
-            `;
-      productContainer.appendChild(productItem);
-    }
-  });
+            `);
+            $("#product-container").append(productItem);
+        }
+    });
+  }
+  else{
+    products.forEach((product) => {
+      if (product.file === file && product.category === category && product.inventory > 0) {
+        $("#product-container").addClass("product-element");
+          const productItem = $("<div>").html(`
+            <img style="max-width: 100px; max-height: 100px;" src="../images/${product.category}-${product.name}.jpg" alt="${product.name}">
+            <h3>${product.name}</h3>
+            <p>Price: $${product.price}</p>
+            <button onclick="addToCart('${product.name}')">Add to Cart</button>
+          `);
+        $("#product-container").append(productItem);
+      }
+    });
+  }
 }
 
 // Function to add a product to the cart
