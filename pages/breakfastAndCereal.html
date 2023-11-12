@@ -38,15 +38,15 @@
   <div class="row">
     <div class="column left">
       <div id="category-buttons">
-        <button onclick="displayCategory('shop-all')">Shop All</button>
-        <button onclick="displayCategory('cereal-shop')">Cereal Shop</button>
-        <button onclick="displayCategory('pancake-waffles')">
+        <button onclick="displayCategory('shop-all', 'breakfast')">Shop All</button>
+        <button onclick="displayCategory('cereal-shop','breakfast')">Cereal Shop</button>
+        <button onclick="displayCategory('pancake-waffles', 'breakfast')">
           Pancakes & Waffles
         </button>
-        <button onclick="displayCategory('breads')">Breakfast Breads</button>
-        <button onclick="displayCategory('oatmeal')">Oatmeal</button>
-        <button onclick="displayCategory('grits')">Grits</button>
-        <button onclick="displayCategory('rollbacks')">Rollbacks</button>
+        <button onclick="displayCategory('breads', 'breakfast')">Breakfast Breads</button>
+        <button onclick="displayCategory('oatmeal', 'breakfast')">Oatmeal</button>
+        <button onclick="displayCategory('grits', 'breakfast')">Grits</button>
+        <button onclick="displayCategory('rollbacks', 'breakfast')">Rollbacks</button>
       </div>
     </div>
     <div class="column right">
@@ -60,7 +60,7 @@
             <ul style="color:  #eadbc8;" id="cart-items"></ul>
           </div>
         </div>
-        <button hidden="hidden" id="addFinalcart" onClick="addCartItemOnPage()"> Add items on page to final cart</button>
+        <button hidden="hidden" id="addFinalcart" onClick="addCartItemOnPage('breakfast')"> Add items on page to final cart</button>
       </div>
       
     </div>
@@ -89,7 +89,7 @@
     <div class="my-details">(Aishwarya Nagaraj, AXN210126, CS6314.001)</div>
   </div>
 
-  <script src="../data/breakfastAndCereal.js"></script>
+  <script src="../data/json_file.js"></script>
   <script src="../scripts/displayAddtoCart.js"></script>
   <script src="../scripts/cart.js"></script>
 </body>

@@ -37,10 +37,10 @@
     totalPriceElement.textContent = `$${totalPrice}`;
   }
 
-  function addCartItemOnPage(){
+  function addCartItemOnPage(file_name){
     let cartData = localStorage.getItem("cart");
     let allItems = [];
-   
+    let presentCartItem = [];
 
     if(cartData){
       allItems = JSON.parse(cartData);
@@ -52,20 +52,24 @@
         const nameElement = listItem.querySelector(".name");
         const quantityElement = listItem.querySelector(".quantity");
         const costElement = listItem.querySelector(".cost");
+        const categoryElement = listItem.querySelector(".category");
       
         if (nameElement && quantityElement && costElement) {
           const name = nameElement.textContent;
           const quantity = quantityElement.textContent;
           const cost = costElement.textContent;
+          const category = categoryElement.textContent;
           let obj = {
             name: name,
             cost: cost,
-            quantity: quantity
+            quantity: quantity, 
+            file: file_name, 
+            category : category
           }
           allItems.push(obj);
+          presentCartItem.push(obj);
         }
 
-        
       });
     }
     localStorage.setItem('cart', JSON.stringify(allItems));
@@ -73,5 +77,30 @@
     document.getElementById("cart-items").innerHTML = "";
 
     alert("All the items added to the cart");
+    updateCartData();
+
+  }
+
+  function updateCartData(){
+
+    
+    fetch('http://localhost:8000/scripts/php/writeAfterCart.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: 'jsCode=' + encodeURIComponent(JSON.stringify(products)),
+    })
+    .then(response => {
+        if (response.ok) {
+            alert('Data successfully written to the file!');
+        } else {
+            alert('Failed to write data to the file.');
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+
 
   }

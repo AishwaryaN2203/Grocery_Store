@@ -57,10 +57,10 @@
             Bake cakes with love<br />Bake like world class chefs with our
             receipe
           </p>
-          <button onclick="displayCategory('pie')">Pie Fillings</button>
-          <button onclick="displayCategory('crusts')">Crusts</button>
-          <button onclick="displayCategory('pudding')">Pudding Mixes</button>
-          <button onclick="displayCategory('pan')">Pie Pan</button>
+          <button onclick="displayCategory('pie', 'baking')">Pie Fillings</button>
+          <button onclick="displayCategory('crusts','baking')">Crusts</button>
+          <button onclick="displayCategory('pudding','baking')">Pudding Mixes</button>
+          <button onclick="displayCategory('pan','baking')">Pie Pan</button>
         </div>
       </div>
       <div class="column right">
@@ -74,7 +74,7 @@
               <ul style="color: #eadbc8" id="cart-items"></ul>
             </div>
           </div>
-          <button hidden="hidden" id="addFinalcart" onClick="addCartItemOnPage()"> Add items on page to final cart</button>
+          <button hidden="hidden" id="addFinalcart" onClick="addCartItemOnPage('baking')"> Add items on page to final cart</button>
         </div>
       </div>
     </div>
@@ -99,7 +99,7 @@
       </div>
       <div class="my-details">(Aishwarya Nagaraj, AXN210126, CS6314.001)</div>
     </div>
-    <script src="../data/baking.js"></script>
+    <script src="../data/json_file.js"></script>
     <script src="../scripts/baking.js"></script>
     <script src="../scripts/cart.js"></script>
   </body>

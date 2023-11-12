@@ -1,22 +1,25 @@
-function displayCategory(category) {
+function displayCategory(category, file) {
+  console.log(products);
   const productContainer = document.getElementById("product-container");
   productContainer.innerHTML = ""; 
 
   if (category === "shop-all") {
     productContainer.classList.add("product-element");
     products.forEach((product) => {
-      const productItem = document.createElement("div");
-      productItem.innerHTML = `
+      if(product.file === file){
+        const productItem = document.createElement("div");
+        productItem.innerHTML = `
                     <img style="max-width: 100px; max-height: 100px;" src="../images/${product.category}-${product.name}.jpg" alt="${product.name}">
                     <h3>${product.name}</h3>
                     <p>Price: $${product.price}</p>
                     <button onclick="addToCart('${product.name}')">Add to Cart</button>
                 `;
-      productContainer.appendChild(productItem);
+        productContainer.appendChild(productItem);
+      }
     });
   }
   products.forEach((product) => {
-    if (product.category === category && product.inventory > 0) {
+    if (product.file === file && product.category === category && product.inventory > 0) {
       const productItem = document.createElement("div");
       productItem.innerHTML = `
                 <img style="max-width: 100px; max-height: 100px;" src="../images/${category}-${product.name}.jpg" alt="${product.name}">
@@ -42,7 +45,7 @@ function addToCart(productName) {
     if (document.getElementById("cart-items").childNodes.length == 0) {
       const cartItem = document.createElement("li");
       cartItem.className = "cartItems";
-      cartItem.innerHTML = `Product Name --------------  Cost  --------------   Quantity\n`;
+      cartItem.innerHTML = `Product Name --------------  Cost  --------------   Quantity  ------------------- Category\n`;
       cartItems.appendChild(cartItem);
 
       const newButton = document.getElementById('addFinalcart');
@@ -63,7 +66,7 @@ function addToCart(productName) {
       let cost = product.price * 1;
       cartItem.className = "cartItems";
       cartItem.dataset.productName = productName;
-      cartItem.innerHTML = `<span class="name">${product.name}</span>  -------------------- $<span class="cost">${cost}</span> -------------- <span class="quantity">1</span>`;
+      cartItem.innerHTML = `<span class="name">${product.name}</span>  -------------------- $<span class="cost">${cost}</span> -------------- <span class="quantity">1</span> ----- <span class="category">${product.category}</span> `;
       cartItems.appendChild(cartItem);
     }
 

@@ -33,19 +33,19 @@
     <div class="row">
       <div class="column left">
         <div id="category-buttons">
-          <button onclick="displayCategory('shop-all')">Shop All</button>
-          <button onclick="displayCategory('goods')">
+          <button onclick="displayCategory('shop-all', 'pantry')">Shop All</button>
+          <button onclick="displayCategory('goods', 'pantry')">
             Canned Goods
           </button>
-          <button onclick="displayCategory('vegetables')">Canned Vegetables</button>
-          <button onclick="displayCategory('condiments')">
+          <button onclick="displayCategory('vegetables', 'pantry')">Canned Vegetables</button>
+          <button onclick="displayCategory('condiments', 'pantry')">
             Condiments
           </button>
-          <button onclick="displayCategory('peanut-butter')">Peanut Butter & Spread</button>
-          <button onclick="displayCategory('pizza-pasta')">
+          <button onclick="displayCategory('peanut-butter', 'pantry')">Peanut Butter & Spread</button>
+          <button onclick="displayCategory('pizza-pasta', 'pantry')">
             Pasta and Pizza
           </button>
-          <button onclick="displayCategory('rollbacks')">Rollbacks</button>
+          <button onclick="displayCategory('rollbacks', 'pantry')">Rollbacks</button>
         </div>
       </div>
       <div class="column right">
@@ -59,7 +59,7 @@
               <ul style="color:  #eadbc8;"id="cart-items"></ul>
             </div>
           </div>
-          <button hidden="hidden" id="addFinalcart" onClick="addCartItemOnPage()"> Add items on page to final cart</button>
+          <button hidden="hidden" id="addFinalcart" onClick="addCartItemOnPage('pantry')"> Add items on page to final cart</button>
         </div>
         
       </div>
@@ -86,7 +86,7 @@
       <div class="my-details">(Aishwarya Nagaraj, AXN210126, CS6314.001)</div>
     </div>
 
-    <script src="../data/pantry.js"></script>
+    <script src="../data/json_file.js"></script>
     <script src="../scripts/displayAddtoCart.js"></script> 
     <script src="../scripts/cart.js"></script>
   </body>

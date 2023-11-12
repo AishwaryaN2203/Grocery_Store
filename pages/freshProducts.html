@@ -48,23 +48,23 @@
     <div class="row">
       <div class="column left">
         <div id="category-buttons">
-          <button onclick="displayCategoryXML('shop-all')">Shop All</button>
-          <button onclick="displayCategoryXML('vegetables')">
+          <button onclick="displayCategoryXML('shop-all','fresh')">Shop All</button>
+          <button onclick="displayCategoryXML('vegetables','fresh')">
             All Vegetables
           </button>
-          <button onclick="displayCategoryXML('fruits')">All Fruits</button>
-          <button onclick="displayCategoryXML('pre-cut-fruits')">
+          <button onclick="displayCategoryXML('fruits','fresh')">All Fruits</button>
+          <button onclick="displayCategoryXML('pre-cut-fruits','fresh')">
             Pre-cut Fruits
           </button>
-          <button onclick="displayCategoryXML('flowers')">Flowers</button>
-          <button onclick="displayCategoryXML('salsa-and-dips')">
+          <button onclick="displayCategoryXML('flowers','fresh')">Flowers</button>
+          <button onclick="displayCategoryXML('salsa-and-dips','fresh')">
             Salsa and Dips
           </button>
-          <button onclick="displayCategoryXML('season-produce')">
+          <button onclick="displayCategoryXML('season-produce','fresh')">
             Season Produce
           </button>
-          <button onclick="displayCategoryXML('new-items')">New Items</button>
-          <button onclick="displayCategoryXML('rollbacks')">Rollbacks</button>
+          <button onclick="displayCategoryXML('new-items','fresh')">New Items</button>
+          <button onclick="displayCategoryXML('rollbacks','fresh')">Rollbacks</button>
         </div>
       </div>
       <div class="column right">
@@ -78,7 +78,7 @@
               <ul style="color: #eadbc8" id="cart-items"></ul>
             </div>
           </div>
-          <button hidden="hidden" id="addFinalcart" onClick="addCartItemOnPage()"> Add items on page to final cart</button>
+          <button hidden="hidden" id="addFinalcart" onClick="addCartItemOnPage('fresh')"> Add items on page to final cart</button>
         </div>
       </div>
     </div>
@@ -103,7 +103,7 @@
       <div class="my-details">(Aishwarya Nagaraj, AXN210126, CS6314.001)</div>
     </div>
 
-    <script src="../data/freshProducts.js"></script>
+    <script src="../data/json_file.js"></script>
     <script src="../scripts/displayAddtoCart.js"></script>
     <script src="../scripts/displayAddtoCart_xml.js"></script>
     <script src="../scripts/cart.js"></script>
