@@ -1,4 +1,4 @@
-[
+let products = [
   { name: "Apple", file: "baking", category: "pie", price: 5, inventory: 10 },
   { name: "Sugar", file: "baking", category: "pie", price: 5, inventory: 10 },
   { name: "Yeast", file: "baking", category: "pie", price: 5, inventory: 10 },

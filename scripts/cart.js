@@ -82,14 +82,12 @@
   }
 
   function updateCartData(){
-
-    
     fetch('http://localhost:8000/scripts/php/writeAfterCart.php', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
         },
-        body: 'jsCode=' + encodeURIComponent(JSON.stringify(products)),
+        body: 'jsCode=' + 'let products = ' + encodeURIComponent(JSON.stringify(products)),
     })
     .then(response => {
         if (response.ok) {

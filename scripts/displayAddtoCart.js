@@ -1,5 +1,4 @@
 function displayCategory(category, file) {
-  console.log(products);
   const productContainer = document.getElementById("product-container");
   productContainer.innerHTML = ""; 
 
