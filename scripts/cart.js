@@ -36,8 +36,8 @@ function displayCartItems(event, when) {
   totalPriceElement.textContent = `$${totalPrice}`;
 
   const button = document.getElementById("other-buttons");
-  const btn1 = '<button type="submit" value="Confirm and Pay" onclick="saveAndPay(event)">Confirm & Pay</button>';
-  const btn2 = ' <button type="submit" value="Cancel and Delete Cart" onclick="cancelAndDelete(event)">Cancel & Delete Cart</button>';
+  const btn1 = '<button type="submit" value="Confirm and Pay" onclick="saveAndPay()">Confirm & Pay</button>';
+  const btn2 = ' <button type="submit" value="Cancel and Delete Cart" onclick="cancelAndDelete()">Cancel & Delete Cart</button>';
   
   button.innerHTML +=(btn1);
   button.innerHTML += (btn2);
@@ -87,11 +87,12 @@ function addCartItemOnPage(file_name, file_type) {
   if (file_type && file_type == "xml") {
     updateCartDataXML(presentCartItem);
   }
+  updateCartData();
+
 }
 
 function updateCartDataXML(presentCartItem) {
-  console.log(presentCartItem);
-  let xmlProducts, xmlString;
+  
   var xhr1 = new XMLHttpRequest();
   var url =
     "http://localhost:8000/scripts/php/loadXML.php?timestamp=" +
@@ -106,16 +107,18 @@ function updateCartDataXML(presentCartItem) {
       var xmlDoc = parser.parseFromString(xmlString, "application/xml");
       var products = xmlDoc.documentElement.getElementsByTagName("product");
       
-      xmlProducts = xmlDoc;
+      let xmlProducts = xmlDoc;
       
-
+      console.log(presentCartItem);
       for (var i = 0; i < presentCartItem.length; i++) {
         var cartItem = presentCartItem[i];
 
         // products[selectedProduct].querySelector("inventory").textContent = product.cost;
-        for (var i = 0; i < products.length; i++) {
-          var product = products[i];
-
+        for (var j = 0; j < products.length; j++) {
+          var product = products[j];
+          console.log(product.querySelector("name").textContent, product.querySelector("file").textContent, product.querySelector("category").textContent)
+          console.log(cartItem.name, cartItem.file, cartItem.category);
+          
           if (
             product.querySelector("name").textContent === cartItem.name &&
             product.querySelector("file").textContent === cartItem.file &&
@@ -179,11 +182,16 @@ function saveAndPay(event){
 }
 
 function cancelAndDelete(event){
-  cancelXMLData();
+  // cancelXMLData();
   cancelJSData();
 }
 
 function cancelJSData(){
+
+  fetch('http://localhost:8000/scripts/php/writeOldJS.php')
+    .then(response => response.text())
+    .then(data => { console.log(data); })
+    .catch(error => { console.error('Error:', error) });
 
 }
 
