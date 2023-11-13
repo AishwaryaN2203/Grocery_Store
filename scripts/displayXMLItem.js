@@ -122,8 +122,6 @@ function addToCart(productName) {
             "inventory"
           ).textContent = inventory - 1;
         }
-
-        console.log(products[selectedProduct]);
         // Update inventory message
         if (inventory === 0) {
           alert(`${name} is out of stock.`);
