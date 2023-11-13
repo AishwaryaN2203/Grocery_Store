@@ -34,6 +34,14 @@ function displayCartItems(event, when) {
   });
 
   totalPriceElement.textContent = `$${totalPrice}`;
+
+  const button = document.getElementById("other-buttons");
+  const btn1 = '<button type="submit" value="Confirm and Pay" onclick="saveAndPay(event)">Confirm & Pay</button>';
+  const btn2 = ' <button type="submit" value="Cancel and Delete Cart" onclick="cancelAndDelete(event)">Cancel & Delete Cart</button>';
+  
+  button.innerHTML +=(btn1);
+  button.innerHTML += (btn2);
+          
 }
 
 function addCartItemOnPage(file_name, file_type) {
@@ -135,7 +143,7 @@ function updateCartDataXML(presentCartItem) {
       console.error("Error:", error);
     });
   }
-  };
+};
 
 function updateCartData() {
   fetch("http://localhost:8000/scripts/php/writeAfterCart.php", {
@@ -159,3 +167,27 @@ function updateCartData() {
       console.error("Error:", error);
     });
 }
+
+function saveAndPay(event){
+  localStorage.clear();
+
+  const cartItemsTable = document.getElementById("cart-items-table");
+  cartItemsTable.innerHTML = "";
+
+  const button = document.getElementById("other-buttons");
+  button.innerHTML = "";
+}
+
+function cancelAndDelete(event){
+  cancelXMLData();
+  cancelJSData();
+}
+
+function cancelJSData(){
+
+}
+
+function cancelXMLData() {
+  
+}
+
