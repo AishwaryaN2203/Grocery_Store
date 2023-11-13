@@ -123,7 +123,7 @@ function addToCart(productName) {
           ).textContent = inventory - 1;
         }
         // Update inventory message
-        if (inventory === 0) {
+        if (parseInt(products[selectedProduct].querySelector("inventory").textContent) === 0) {
           alert(`${name} is out of stock.`);
         }
       }
