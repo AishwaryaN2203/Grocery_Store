@@ -5,7 +5,7 @@
     <file>fresh</file>
     <category>vegetables</category>
     <price>3</price>
-    <inventory>13</inventory>
+    <inventory>15</inventory>
   </product>
   <product>
     <name>Beetroot</name>

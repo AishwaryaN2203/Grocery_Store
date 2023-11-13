@@ -33,7 +33,7 @@ function displayCartItems(event, when) {
     cartItemsTable.appendChild(row);
   });
 
-  totalPriceElement.textContent = `$${totalPrice}`;
+  totalPriceElement.textContent = `Total Price for All Items: $${totalPrice}`;
 
   const button = document.getElementById("other-buttons");
   const btn1 = '<button type="submit" value="Confirm and Pay" onclick="saveAndPay()">Confirm & Pay</button>';
@@ -171,7 +171,7 @@ function updateCartData() {
     });
 }
 
-function saveAndPay(event){
+function saveAndPay(){
   localStorage.clear();
 
   const cartItemsTable = document.getElementById("cart-items-table");
@@ -179,11 +179,15 @@ function saveAndPay(event){
 
   const button = document.getElementById("other-buttons");
   button.innerHTML = "";
+
+  const totalPriceElement = document.getElementById("total-price");
+  totalPriceElement.textContent = "";
 }
 
-function cancelAndDelete(event){
-  // cancelXMLData();
+function cancelAndDelete(){
+  cancelXMLData();
   cancelJSData();
+  saveAndPay();
 }
 
 function cancelJSData(){
@@ -196,6 +200,9 @@ function cancelJSData(){
 }
 
 function cancelXMLData() {
-  
+  fetch('http://localhost:8000/scripts/php/writeOldXML.php')
+    .then(response => response.text())
+    .then(data => { console.log(data); })
+    .catch(error => { console.error('Error:', error) });
 }
 
