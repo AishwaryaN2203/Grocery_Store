@@ -50,16 +50,16 @@
     <div class="row">
       <div class="column left">
         <div id="category-buttons">
-          <button onclick="displayCategory('shop-all','frozen')">Shop All</button>
-          <button onclick="displayCategory('breakfast','frozen')">
+          <button onclick="displayCategoryXML('shop-all','frozen')">Shop All</button>
+          <button onclick="displayCategoryXML('breakfast','frozen')">
             Frozen Breakfast
           </button>
-          <button onclick="displayCategory('dessert','frozen')">Frozen Dessert</button>
-          <button onclick="displayCategory('meals','frozen')">Frozen Meals</button>
-          <button onclick="displayCategory('meat','frozen')">Frozen Meat</button>
-          <button onclick="displayCategory('pizza','frozen')">Frozen Pizza</button>
-          <button onclick="displayCategory('snacks','frozen')">Frozen Snacks</button>
-          <button onclick="displayCategory('rollbacks','frozen')">Rollbacks</button>
+          <button onclick="displayCategoryXML('dessert','frozen')">Frozen Dessert</button>
+          <button onclick="displayCategoryXML('meals','frozen')">Frozen Meals</button>
+          <button onclick="displayCategoryXML('meat','frozen')">Frozen Meat</button>
+          <button onclick="displayCategoryXML('pizza','frozen')">Frozen Pizza</button>
+          <button onclick="displayCategoryXML('snacks','frozen')">Frozen Snacks</button>
+          <button onclick="displayCategoryXML('rollbacks','frozen')">Rollbacks</button>
         </div>
       </div>
       <div class="column right">
@@ -73,7 +73,7 @@
               <ul style="color:  #eadbc8;"id="cart-items"></ul>
             </div>
           </div>
-          <button hidden="hidden" id="addFinalcart" onClick="addCartItemOnPage('frozen')"> Add items on page to final cart</button>
+          <button hidden="hidden" id="addFinalcart" onClick="addCartItemOnPage('frozen', 'xml')"> Add items on page to final cart</button>
         </div>
         
       </div>
