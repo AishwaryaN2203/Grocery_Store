@@ -15,8 +15,8 @@ function displayCategoryXML(category, page) {
       var parser = new DOMParser();
       var xmlDoc = parser.parseFromString(xmlString, "application/xml");
       var products =
-        xmlDoc.documentElement.getElementsByTagName("product");
-
+      xmlDoc.documentElement.getElementsByTagName("product");
+     
       for (var i = 0; i < products.length; i++) {
         var product = products[i];
 
@@ -26,20 +26,25 @@ function displayCategoryXML(category, page) {
         const inventory = parseInt(
           product.querySelector("inventory").textContent
         );
+        const file = product.querySelector("file").textContent;
 
         // Filter products based on the selected category
-        if (category === "shop-all" || category == categoryXML) {
-          if (inventory > 0) {
-            const productItem = document.createElement("div");
-            productItem.innerHTML = `
-            <img style="max-width: 100px; max-height: 100px;" src="../images/${categoryXML}-${name}.jpg" alt="${name}">
-            <h3>${name}</h3>
-            <p>Price: $${price}</p>
-            <button onclick="addToCart('${name}')">Add to Cart</button>
-        `;
-            productContainer.appendChild(productItem);
+        if(file === page){
+          if (category === "shop-all" || category == categoryXML) {
+            productContainer.classList.add("product-element");
+            if (inventory > 0) {
+              const productItem = document.createElement("div");
+              productItem.innerHTML = `
+              <img style="max-width: 100px; max-height: 100px;" src="../images/${categoryXML}-${name}.jpg" alt="${name}">
+              <h3>${name}</h3>
+              <p>Price: $${price}</p>
+              <button onclick="addToCart('${name}')">Add to Cart</button>
+          `;
+              productContainer.appendChild(productItem);
+            }
           }
         }
+        
       }
     }
   };
