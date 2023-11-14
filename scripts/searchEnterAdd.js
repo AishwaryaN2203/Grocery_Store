@@ -31,6 +31,11 @@ function searchCandyInInventory(candyName, page) {
 
 function searchCandyInInventoryXML(candyName, page) {
   
+  // if(candyName === 'reset page'){
+  //   const productContainer = document.getElementById("product-container");
+  //   productContainer.innerHTML = ""; 
+  //   return;
+  // }
   const productContainer = document.getElementById("product-container");
   productContainer.innerHTML = ""; 
   
@@ -43,6 +48,7 @@ function searchCandyInInventoryXML(candyName, page) {
   xhr1.send();
   xhr1.onload = function () {
     if (xhr1.status === 200) {
+      let foundProduct = false;
       var xmlString = xhr1.responseText;
       var parser = new DOMParser();
       var xmlDoc = parser.parseFromString(xmlString, "application/xml");
@@ -52,29 +58,26 @@ function searchCandyInInventoryXML(candyName, page) {
         var product = products[i];
 
         const name = product.querySelector("name").textContent;
-        const categoryXML = product.querySelector("category").textContent;
-        const price = parseFloat(product.querySelector("price").textContent);
-        const inventory = parseInt(product.querySelector("inventory").textContent);
+        const price = product.querySelector("price").textContent;
         const file = product.querySelector("file").textContent;
 
-        // Filter products based on the selected category
-        if(file === page){
-          if (name === candyName) {
-            const productItem = document.createElement("div");
-            productItem.innerHTML = `
-                <h2>${name}</h2>
-                <p>Price: $${price}</p>
-                <img style="max-width: 200px; max-height: 150px;" src="../images/${page}-${name}.jpg" alt="${name}"><br>
-                <label>Enter quantity: <input type="number" id="quantityInput"></label><br>
-                <button onclick="addToCartXML('${name}')">Add to Cart</button>
-            `;
-            productContainer.appendChild(productItem);
-            document.getElementById("candyInfo").innerHTML = "";
-        } else {
-            document.getElementById("candyInfo").innerHTML = `${name} is out of stock or is presently unavailable`;
-        }
-        }
-        
+        if(file === page && name === candyName){
+          foundProduct = true;
+          const productItem = document.createElement("div");
+          productItem.innerHTML = `
+              <h2>${name}</h2>
+              <p>Price: $${price}</p>
+              <img style="max-width: 200px; max-height: 150px;" src="../images/${page}-${name}.jpg" alt="${name}"><br>
+              <label>Enter quantity: <input type="number" id="quantityInput"></label><br>
+              <button onclick="addToCartXML('${name}')">Add to Cart</button>
+          `;
+          productContainer.appendChild(productItem);
+          document.getElementById("candyInfo").innerHTML = "";
+        } 
+      }
+      
+      if(foundProduct === false){
+        document.getElementById("candyInfo").innerHTML = `${candyName} is out of stock or is presently unavailable`;
       }
     }
   }
@@ -133,7 +136,7 @@ function addToCart(productName) {
 }
 }
 
-function addToCartXML (productName, ){
+function addToCartXML (productName){
 
   const quantity = parseInt(document.getElementById("quantityInput").value);
   if (isNaN(quantity) || quantity <= 0) {
@@ -169,56 +172,54 @@ function addToCartXML (productName, ){
         return item.dataset.productName === productName;
       });
 
-      var name =
-        products[selectedProduct].querySelector("name").textContent;
-      var categoryXML =
-        products[selectedProduct].querySelector("category").textContent;
-      var price = parseFloat(
-        products[selectedProduct].querySelector("price").textContent
-      );
-      var inventory = parseInt(
-        products[selectedProduct].querySelector("inventory").textContent
-      );
+      var name = products[selectedProduct].querySelector("name").textContent;
+      var categoryXML =  products[selectedProduct].querySelector("category").textContent;
+      var price = parseFloat(products[selectedProduct].querySelector("price").textContent);
+      var inventory = parseInt( products[selectedProduct].querySelector("inventory").textContent);
 
-      if (product && inventory > 0) {
-        if (document.getElementById("cart-items").childNodes.length == 0) {
-          const cartItem = document.createElement("li");
-          cartItem.className = "cartItems";
-          cartItem.innerHTML = `Product Name --------------  Cost  --------------   Quantity ---------- Category \n`;
-          cartItems.appendChild(cartItem);
-
-          const newButton = document.getElementById("addFinalcart");
-          newButton.removeAttribute("hidden");
-        }
-        if (existingCartItem) {
-          // If the product already exists in the cart, update the quantity
-          const quantitySpan = existingCartItem.querySelector(".quantity");
-          const currentQuantity = parseInt(quantitySpan.textContent);
-          quantitySpan.textContent = currentQuantity + quantity;
-
-          const costSpan = existingCartItem.querySelector(".cost");
-          const currentCost = parseInt(costSpan.textContent);
-          costSpan.textContent = (price * (quantity+currentQuantity));
-
-          products[selectedProduct].querySelector(
-            "inventory"
-          ).textContent = inventory - currentQuantity - 1;
-      } else {
-          // If the product is not in the cart, add it as a new item
-          const cartItem = document.createElement("li");
-          let cost = price * quantity;
-          cartItem.className = "cartItems";
-          cartItem.dataset.productName = productName;
-          cartItem.innerHTML = `<span class="name">${name}</span>  -------------------- $<span class="cost">${cost}</span> -------------- <span class="quantity">${quantity}</span> --------------- <span class="category">${categoryXML}</span>`;
-          cartItems.appendChild(cartItem);
-
-          products[selectedProduct].querySelector(
-            "inventory"
-          ).textContent = inventory - 1;
+      if (parseInt(products[selectedProduct].querySelector("inventory").textContent) - quantity <= 0  ) {
+        alert(`${name} is out of stock.`);
       }
-      
-        if (parseInt(products[selectedProduct].querySelector("inventory").textContent) === 0) {
-          alert(`${name} is out of stock.`);
+      else{
+        if (product) {
+          if (document.getElementById("cart-items").childNodes.length == 0) {
+            const cartItem = document.createElement("li");
+            cartItem.className = "cartItems";
+            cartItem.innerHTML = `Product Name --------------  Cost  --------------   Quantity ---------- Category \n`;
+            cartItems.appendChild(cartItem);
+  
+            const newButton = document.getElementById("addFinalcart");
+            newButton.removeAttribute("hidden");
+          }
+          if (existingCartItem) {
+            // If the product already exists in the cart, update the quantity
+            const quantitySpan = existingCartItem.querySelector(".quantity");
+            const currentQuantity = parseInt(quantitySpan.textContent);
+            quantitySpan.textContent = currentQuantity + quantity;
+  
+            const costSpan = existingCartItem.querySelector(".cost");
+            const currentCost = parseInt(costSpan.textContent);
+            costSpan.textContent = (price * (quantity+currentQuantity));
+  
+            if(products[selectedProduct].querySelector("inventory").textContent - currentQuantity - quantity <= 0){
+              alert(`${name} is out of stock.`);
+            }
+            else{
+              products[selectedProduct].querySelector("inventory").textContent 
+              = products[selectedProduct].querySelector("inventory").textContent - currentQuantity - quantity;
+       
+            }
+           
+          } else {
+            const cartItem = document.createElement("li");
+            let cost = price * quantity;
+            cartItem.className = "cartItems";
+            cartItem.dataset.productName = productName;
+            cartItem.innerHTML = `<span class="name">${name}</span>  -------------------- $<span class="cost">${cost}</span> -------------- <span class="quantity">${quantity}</span> --------------- <span class="category">${categoryXML}</span>`;
+            cartItems.appendChild(cartItem);
+  
+            products[selectedProduct].querySelector("inventory").textContent = products[selectedProduct].querySelector("inventory").textContent - quantity;
+          }
         }
       }
     }
