@@ -31,16 +31,15 @@ function displayCategoryXML(category, page) {
         // Filter products based on the selected category
         if(file === page){
           if (category === "shop-all" || category == categoryXML) {
-            productContainer.classList.add("product-element");
+            $("#product-container").addClass("product-element");
             if (inventory > 0) {
-              const productItem = document.createElement("div");
-              productItem.innerHTML = `
-              <img style="max-width: 100px; max-height: 100px;" src="../images/${categoryXML}-${name}.jpg" alt="${name}">
-              <h3>${name}</h3>
-              <p>Price: $${price}</p>
-              <button onclick="addToCart('${name}')">Add to Cart</button>
-          `;
-              productContainer.appendChild(productItem);
+              const productItem = $("<div>").html(`
+                <img style="max-width: 100px; max-height: 100px;" src="../images/${product.category}-${product.name}.jpg" alt="${product.name}">
+                <h3>${product.name}</h3>
+                <p>Price: $${product.price}</p>
+                <button onclick="addToCart('${product.name}')">Add to Cart</button>
+            `);
+            $("#product-container").append(productItem);
             }
           }
         }
