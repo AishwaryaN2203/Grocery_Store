@@ -378,7 +378,7 @@
         <inventory>10</inventory>
     </product>
     <product>
-        <name>Fried-Chicken</name>
+        <name>Fried Chicken</name>
         <file>snacks</file>
         <category>snacks</category>
         <price>5</price>
