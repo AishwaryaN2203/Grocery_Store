@@ -38,7 +38,8 @@ function searchCandyInInventoryXML(candyName, page) {
   // }
   const productContainer = document.getElementById("product-container");
   productContainer.innerHTML = ""; 
-  
+  let foundProduct = false;
+
   var xhr1 = new XMLHttpRequest();
   var url =
     "http://localhost:8000/scripts/php/loadXML.php?timestamp=" +
@@ -48,39 +49,44 @@ function searchCandyInInventoryXML(candyName, page) {
   xhr1.send();
   xhr1.onload = function () {
     if (xhr1.status === 200) {
-      let foundProduct = false;
+      
       var xmlString = xhr1.responseText;
       var parser = new DOMParser();
       var xmlDoc = parser.parseFromString(xmlString, "application/xml");
       var products = xmlDoc.documentElement.getElementsByTagName("product");
      
       for (var i = 0; i < products.length; i++) {
-        var product = products[i];
-
+        let product = products[i];
         const name = product.querySelector("name").textContent;
         const price = product.querySelector("price").textContent;
         const file = product.querySelector("file").textContent;
 
         if(file === page && name === candyName){
           foundProduct = true;
-          const productItem = document.createElement("div");
-          productItem.innerHTML = `
-              <h2>${name}</h2>
-              <p>Price: $${price}</p>
-              <img style="max-width: 200px; max-height: 150px;" src="../images/${page}-${name}.jpg" alt="${name}"><br>
-              <label>Enter quantity: <input type="number" id="quantityInput"></label><br>
-              <button onclick="addToCartXML('${name}')">Add to Cart</button>
-          `;
-          productContainer.appendChild(productItem);
-          document.getElementById("candyInfo").innerHTML = "";
+          const productItem = $("<div>").html(`
+            <h2>${name}</h2>
+            <p>Price: $${price}</p>
+            <img style="max-width: 200px; max-height: 150px;" src="../images/${page}-${name}.jpg" alt="${name}"><br>
+            <label>Enter quantity: <input type="number" id="quantityInput"></label><br>
+            <button class="addToCartBtn">Add to Cart</button>
+          `);
+
+          $("#product-container").append(productItem);
+          $("#candyInfo").html("");
+
+          productItem.find(".addToCartBtn").on("click", function() {
+            addToCartXML(name);
+          });
+    
         } 
       }
-      
       if(foundProduct === false){
         document.getElementById("candyInfo").innerHTML = `${candyName} is out of stock or is presently unavailable`;
       }
+      foundProduct = true;
     }
   }
+  
 }
 
 
@@ -132,7 +138,7 @@ function addToCart(productName) {
       
   }
   else if (product.inventory < quantity) {
-    alert(`${product.name} has ${product.inventory} in stock.`);
+    alert(`${product.name} has ${product.inventory} in stock. Item is out of stock`);
 }
 }
 
@@ -156,6 +162,7 @@ function addToCartXML (productName){
       var parser = new DOMParser();
       var xmlDoc = parser.parseFromString(xmlString, "application/xml");
       products = xmlDoc.documentElement.getElementsByTagName("product");
+      
       let selectedProduct = -1;
 
       for (var i = 0; i < products.length; i++) {
@@ -164,6 +171,7 @@ function addToCartXML (productName){
         const name = product.querySelector("name").textContent;
         if (name === productName) {
           selectedProduct = i;
+          console.log(product);
         }
       }
 
@@ -177,8 +185,8 @@ function addToCartXML (productName){
       var price = parseFloat(products[selectedProduct].querySelector("price").textContent);
       var inventory = parseInt( products[selectedProduct].querySelector("inventory").textContent);
 
-      if (parseInt(products[selectedProduct].querySelector("inventory").textContent) - quantity <= 0  ) {
-        alert(`${name} is out of stock.`);
+      if (parseInt(products[selectedProduct].querySelector("inventory").textContent) - quantity < 0  ) {
+        alert(`${name} does not have ${quantity} in stock. Item is out of Stock`);
       }
       else{
         if (product) {
@@ -195,18 +203,20 @@ function addToCartXML (productName){
             // If the product already exists in the cart, update the quantity
             const quantitySpan = existingCartItem.querySelector(".quantity");
             const currentQuantity = parseInt(quantitySpan.textContent);
-            quantitySpan.textContent = currentQuantity + quantity;
+           
   
             const costSpan = existingCartItem.querySelector(".cost");
             const currentCost = parseInt(costSpan.textContent);
-            costSpan.textContent = (price * (quantity+currentQuantity));
+            
   
-            if(products[selectedProduct].querySelector("inventory").textContent - currentQuantity - quantity <= 0){
-              alert(`${name} is out of stock.`);
+            if(products[selectedProduct].querySelector("inventory").textContent - currentQuantity - quantity < 0){
+              alert(`${name} does not have ${quantity} in stock. Item is out of Stock`);
             }
             else{
               products[selectedProduct].querySelector("inventory").textContent 
               = products[selectedProduct].querySelector("inventory").textContent - currentQuantity - quantity;
+              quantitySpan.textContent = currentQuantity + quantity;
+              costSpan.textContent = (price * (quantity+currentQuantity));
        
             }
            
@@ -235,8 +245,10 @@ function searchItem(event, page) {
       alert("Invalid candy name. Please enter a valid name without numbers.");
       return;
   }
+  console.log("page",page)
   if(page === 'snacks' || page === 'candy'){
     searchCandyInInventoryXML(candyNameInput, page);
+    return;
   }
   searchCandyInInventory(candyNameInput, page);
 }
