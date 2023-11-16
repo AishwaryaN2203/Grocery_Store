@@ -49,20 +49,6 @@
     <inventory>10</inventory>
   </product>
     <product>
-        <name>Banana</name>
-        <file>fresh</file>
-        <category>fruits</category>
-        <price>3</price>
-        <inventory>15</inventory>
-    </product>
-    <product>
-        <name>Apple</name>
-        <file>fresh</file>
-        <category>fruits</category>
-        <price>5</price>
-        <inventory>10</inventory>
-    </product>
-    <product>
         <name>Grapes</name>
         <file>fresh</file>
         <category>fruits</category>
@@ -126,7 +112,7 @@
         <inventory>15</inventory>
     </product>
     <product>
-        <name>Tomato</name>
+        <name>Tomato-salsa</name>
         <file>fresh</file>
         <category>salsa-and-dips</category>
         <price>5</price>
@@ -140,7 +126,7 @@
         <inventory>15</inventory>
     </product>
     <product>
-        <name>Beans</name>
+        <name>Sprouts-Beans</name>
         <file>fresh</file>
         <category>season-produce</category>
         <price>5</price>

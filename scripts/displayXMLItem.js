@@ -34,10 +34,10 @@ function displayCategoryXML(category, page) {
             $("#product-container").addClass("product-element");
             if (inventory > 0) {
               const productItem = $("<div>").html(`
-                <img style="max-width: 100px; max-height: 100px;" src="../images/${product.category}-${product.name}.jpg" alt="${product.name}">
-                <h3>${product.name}</h3>
-                <p>Price: $${product.price}</p>
-                <button onclick="addToCart('${product.name}')">Add to Cart</button>
+                <img style="max-width: 100px; max-height: 100px;" src="../images/${categoryXML}-${name}.jpg" alt="${product.name}">
+                <h3>${name}</h3>
+                <p>Price: $${price}</p>
+                <button onclick="addToCart('${name}')">Add to Cart</button>
             `);
             $("#product-container").append(productItem);
             }
@@ -90,8 +90,8 @@ function addToCart(productName) {
       var inventory = parseInt(
         products[selectedProduct].querySelector("inventory").textContent
       );
-
-      if (product && inventory > 0) {
+        
+      if (product && parseInt(products[selectedProduct].querySelector("inventory").textContent) > 0) {
         if (document.getElementById("cart-items").childNodes.length == 0) {
           const cartItem = document.createElement("li");
           cartItem.className = "cartItems";
@@ -102,17 +102,21 @@ function addToCart(productName) {
           newButton.removeAttribute("hidden");
         }
         if (existingCartItem) {
-          const quantitySpan = existingCartItem.querySelector(".quantity");
-          const currentQuantity = parseInt(quantitySpan.textContent);
-          quantitySpan.textContent = currentQuantity + 1;
+          let quantitySpan = existingCartItem.querySelector(".quantity");
+          let currentQuantity = parseInt(quantitySpan.textContent);
+         
+          let costSpan = existingCartItem.querySelector(".cost");
+          let currentCost = parseInt(costSpan.textContent);
 
-          const costSpan = existingCartItem.querySelector(".cost");
-          const currentCost = parseInt(costSpan.textContent);
-          costSpan.textContent = price * (currentQuantity + 1);
-
-          products[selectedProduct].querySelector(
-            "inventory"
-          ).textContent = inventory - currentQuantity - 1;
+          if (parseInt(products[selectedProduct].querySelector("inventory").textContent)-currentQuantity-1 < 0) {
+            alert(`${name} is out of stock.`);
+          }
+          else{
+            products[selectedProduct].querySelector("inventory").textContent = inventory - currentQuantity - 1;
+            quantitySpan.textContent = currentQuantity + 1;
+            costSpan.textContent = price * (currentQuantity + 1);
+          }
+          
         } else {
           // If the product is not in the cart, add it as a new item
           const cartItem = document.createElement("li");
