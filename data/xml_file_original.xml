@@ -168,7 +168,7 @@
         <inventory>10</inventory>
     </product>
     <product>
-        <name>Peas</name>
+        <name>Green-Peas</name>
         <file>fresh</file>
         <category>rollbacks</category>
         <price>3</price>
@@ -336,7 +336,14 @@
         <inventory>10</inventory>
     </product>
     <product>
-        <name>Churos</name>
+        <name>Frozen-Apple</name>
+        <file>frozen</file>
+        <category>snacks</category>
+        <price>3</price>
+        <inventory>10</inventory>
+    </product>
+     <product>
+        <name>Frozen-Berries</name>
         <file>frozen</file>
         <category>snacks</category>
         <price>3</price>
@@ -371,14 +378,7 @@
         <inventory>10</inventory>
     </product>
     <product>
-        <name>Chips</name>
-        <file>snacks</file>
-        <category>snacks</category>
-        <price>3</price>
-        <inventory>15</inventory>
-    </product>
-    <product>
-        <name>Chicken</name>
+        <name>Fried-Chicken</name>
         <file>snacks</file>
         <category>snacks</category>
         <price>5</price>
